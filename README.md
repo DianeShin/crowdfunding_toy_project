@@ -42,6 +42,6 @@ This is a full-stack project making a website where you can upload crowdfunding 
 </ol>
 
 ## Design
-https://www.figma.com/file/yn4m2ThcUjPmhrz855Voor/Untitled?type=design&node-id=0%3A1&mode=design&t=4pgaDM5SX3EfIeDg-1
+[Check the wireframe](https://www.figma.com/file/yn4m2ThcUjPmhrz855Voor/Untitled?type=design&node-id=0%3A1&mode=design&t=4pgaDM5SX3EfIeDg-1 "Go to Figma")
 
 ## Troubleshooting
