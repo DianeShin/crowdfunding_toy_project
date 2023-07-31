@@ -1,38 +1,51 @@
-.App {
+body{
+  overflow: hidden;
+}
+#home-title{
   text-align: center;
+  margin-top: 50px;
+  margin-bottom: 150px;
 }
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.account-type-container{
   display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
 }
 
-.App-link {
-  color: #61dafb;
+.accountType{
+  background-color: rgba(170, 170, 170, 0.4);
+  border-radius: 30px;
+  padding: 70px 30px;
+
 }
 
-@keyframes App-logo-spin {
+#individual-account-type{
+  text-align: center;
+  float: left;
+  margin-left: 10%;
+  width: 25%;
+  animation: slideInFromBottom 1s ease;
+}
+#business-account-type{
+  text-align: center;
+  float: right;
+  margin-right: 10%;
+  width: 25%;
+  animation: slideInFromTop 1s ease;
+}
+
+@keyframes slideInFromBottom{
   from {
-    transform: rotate(0deg);
+    transform: translate(0, 100%);
   }
   to {
-    transform: rotate(360deg);
+    transform: translate(0, 0);
+  }
+}
+
+@keyframes slideInFromTop{
+  from {
+    transform: translate(0, -100%);
+  }
+  to {
+    transform: translate(0,0);
   }
 }
