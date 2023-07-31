@@ -44,4 +44,10 @@ This is a full-stack project making a website where you can upload crowdfunding 
 ## Design
 [Check the wireframe](https://www.figma.com/file/yn4m2ThcUjPmhrz855Voor/Untitled?type=design&node-id=0%3A1&mode=design&t=4pgaDM5SX3EfIeDg-1 "Go to Figma")
 
+## Front-end configuration
+```
+npm i --save @fortawesome/fontawesome-svg-core
+npm install --save @fortawesome/free-solid-svg-icons
+npm install --save @fortawesome/react-fontawesome
+```
 ## Troubleshooting
