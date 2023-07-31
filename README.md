@@ -30,16 +30,14 @@ This is a full-stack project making a website where you can upload crowdfunding 
 </ul>
 
 ## Timeline - To be updated
-<ol>
-  <li>Design project</li>
-  <li>Setup project</li>
-  <li>Create Customer/Project owner/Administrator on backend</li>
-  <li>Create Post/Comments on backend</li>
-  <li>Create chat function on backend</li>
-  <li>Create Customer frontend</li>
-  <li>Create Project owner frontend</li>
-  <li>Create Administrator frontend</li>
-</ol>
+- [X] 30/07/2023 : Design overall project
+- [X] 31/07/2023 : Setup project
+- [X] 31/07/2023 : Create Individual on backend
+- [X] 31/07/2023 : Implement account selection screen on frontend
+- [ ] Create Project owner/Administrator on backend
+- [ ] Create Post/Comments on backend
+- [ ] Create chat function on backend
+- [ ] Create frontend by wireframe
 
 ## Design
 [Check the wireframe](https://www.figma.com/file/yn4m2ThcUjPmhrz855Voor/Untitled?type=design&node-id=0%3A1&mode=design&t=4pgaDM5SX3EfIeDg-1 "Go to Figma")
@@ -52,3 +50,8 @@ npm install --save @fortawesome/free-solid-svg-icons
 npm install --save @fortawesome/react-fontawesome
 ```
 ## Troubleshooting
+
+## Learned
+<ul>
+    <li>CSS animations</li>
+</ul>
