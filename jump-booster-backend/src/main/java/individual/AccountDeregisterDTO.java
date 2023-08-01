@@ -1,6 +1,6 @@
 package individual;
 
-public class IndividualDeregisterDTO {
+public class AccountDeregisterDTO {
     Long userId;
 
     public Long getUserId() {

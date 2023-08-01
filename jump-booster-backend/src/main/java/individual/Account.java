@@ -1,13 +1,11 @@
 package individual;
 
 import jakarta.persistence.*;
-import org.hibernate.annotations.Type;
-
 import java.util.Arrays;
 
 @Entity
 @Table
-public class Individual{
+public class Account {
     @Id
     @SequenceGenerator(
             name = "individual_sequence",
@@ -24,22 +22,25 @@ public class Individual{
     String password;
     @Lob
     byte[] profileImg;
+    String role;
 
-    public Individual(){}
+    public Account(){}
 
-    public Individual(Long userId, String username, String email, String password, byte[] profileImg) {
+    public Account(Long userId, String username, String email, String password, byte[] profileImg, String role) {
         this.userId = userId;
         this.username = username;
         this.email = email;
         this.password = password;
         this.profileImg = profileImg;
+        this.role = role;
     }
 
-    public Individual(String username, String email, String password, byte[] profileImg) {
+    public Account(String username, String email, String password, byte[] profileImg, String role) {
         this.username = username;
         this.email = email;
         this.password = password;
         this.profileImg = profileImg;
+        this.role = role;
     }
 
     public Long getUserId() {
@@ -82,6 +83,14 @@ public class Individual{
         this.profileImg = profileImg;
     }
 
+    public String getRole() {
+        return role;
+    }
+
+    public void setRole(String role) {
+        this.role = role;
+    }
+
     @Override
     public String toString() {
         return "Individual{" +
@@ -90,6 +99,7 @@ public class Individual{
                 ", email='" + email + '\'' +
                 ", password='" + password + '\'' +
                 ", profileImg=" + Arrays.toString(profileImg) +
+                ", role='" + role + '\'' +
                 '}';
     }
 }
