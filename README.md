@@ -34,13 +34,17 @@ This is a full-stack project making a website where you can upload crowdfunding 
 - [X] 31/07/2023 : Setup project
 - [X] 31/07/2023 : Create Individual on backend
 - [X] 31/07/2023 : Implement account selection screen on frontend
+- [X] 01/08/2023 : Design database for project
+- [X] 01/08/2023 : Modify Individual to Account on backend
+- [X] 01/08/2023 : Implement login logic for Accounts
+- [X] 01/08/2023 : Implement login for Individuals/Project owners on frontend
 - [ ] Create Project owner/Administrator on backend
 - [ ] Create Post/Comments on backend
 - [ ] Create chat function on backend
 - [ ] Create frontend by wireframe
 
 ## Design
-[Check the wireframe](https://www.figma.com/file/yn4m2ThcUjPmhrz855Voor/Untitled?type=design&node-id=0%3A1&mode=design&t=4pgaDM5SX3EfIeDg-1 "Go to Figma")
+[Check here](https://www.figma.com/file/yn4m2ThcUjPmhrz855Voor/Untitled?type=design&node-id=0%3A1&mode=design&t=4pgaDM5SX3EfIeDg-1 "Go to Figma")
 
 ## Front-end configuration
 ```
@@ -50,7 +54,7 @@ npm install --save @fortawesome/free-solid-svg-icons
 npm install --save @fortawesome/react-fontawesome
 ```
 ## Troubleshooting
-
+1. Unable to access lob stream error while implementing login: fixed by adding @Transactional to AccountService.
 ## Learned
 <ul>
     <li>CSS animations</li>
