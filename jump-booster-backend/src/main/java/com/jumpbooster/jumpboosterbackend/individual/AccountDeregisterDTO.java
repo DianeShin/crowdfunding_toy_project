@@ -1,4 +1,4 @@
-package individual;
+package com.jumpbooster.jumpboosterbackend.individual;
 
 public class AccountDeregisterDTO {
     Long userId;

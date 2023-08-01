@@ -1,4 +1,4 @@
-package individual;
+package com.jumpbooster.jumpboosterbackend.individual;
 
 import jakarta.persistence.*;
 import java.util.Arrays;
@@ -8,13 +8,13 @@ import java.util.Arrays;
 public class Account {
     @Id
     @SequenceGenerator(
-            name = "individual_sequence",
-            sequenceName = "individual_sequence",
+            name = "account_sequence",
+            sequenceName = "account_sequence",
             allocationSize = 1
     )
     @GeneratedValue(
             strategy = GenerationType.SEQUENCE,
-            generator = "individual_sequence"
+            generator = "account_sequence"
     )
     Long userId;
     String username;
