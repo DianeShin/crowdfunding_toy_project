@@ -1,9 +1,9 @@
 import {useContext, useState} from "react";
 import {Link} from "react-router-dom";
-import './IndividualLogin.css'
+import './AccountLogin.css'
 import {AuthContext} from "./Authenticator";
-export function IndividualLogin() {
-    const [loginInfo, setLoginInfo] = useState({email: "", username: "", user: "", role: "individual"});
+export function AccountLogin(props) {
+    const [loginInfo, setLoginInfo] = useState({email: "", username: "", user: "", role: props.role});
     const {setUserId} = useContext(AuthContext);
     const handleChange = (event) => {
         const name = event.target.name;
@@ -53,9 +53,20 @@ export function IndividualLogin() {
                 <div className="center-wrapper">
                     <div id="login-div">
                         <div className="loginSection" id="login-decoration-div">
-                            <h3>Invest,</h3>
-                            <h3>Get rewarded,</h3>
-                            <h3>Change the world.</h3>
+                            {props.role === "individual" && (
+                                <>
+                                    <h3>Invest,</h3><br/><br/>
+                                    <h3>Get rewarded,</h3><br/><br/>
+                                    <h3>Change the world.</h3>
+                                </>
+                            )}
+                            {props.role === "business" && (
+                                <>
+                                    <h3>Show your passion,</h3><br/><br/>
+                                    <h3>Get funded,</h3><br/><br/>
+                                    <h3>Change the world.</h3>
+                                </>
+                            )}
                         </div>
                         <div className="loginSection" id="login-info-div">
                             <h2 id="login-text">Login</h2>
@@ -77,4 +88,4 @@ export function IndividualLogin() {
     )
 }
 
-export default IndividualLogin;
+export default AccountLogin;
