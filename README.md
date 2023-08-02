@@ -38,7 +38,9 @@ This is a full-stack project making a website where you can upload crowdfunding 
 - [X] 01/08/2023 : Modify Individual to Account on backend
 - [X] 01/08/2023 : Implement login logic for Accounts
 - [X] 01/08/2023 : Implement login for Individuals/Project owners on frontend
-- [ ] Create Project owner/Administrator on backend
+- [X] 02/08/2023 : Implement getAccountById on frontend/backend
+- [X] 02/08/2023 : Create Post on backend
+- [X] 02/08/2023 : Implement project post display after individual login on frontend
 - [ ] Create Post/Comments on backend
 - [ ] Create chat function on backend
 - [ ] Create frontend by wireframe
@@ -58,4 +60,5 @@ npm install --save @fortawesome/react-fontawesome
 ## Learned
 <ul>
     <li>CSS animations</li>
+    <li>Image transaction</li>
 </ul>
