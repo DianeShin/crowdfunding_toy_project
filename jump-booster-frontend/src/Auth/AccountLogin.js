@@ -31,6 +31,7 @@ export function AccountLogin(props) {
                 setUserId(data);
                 sessionStorage.setItem('loginUserId', JSON.stringify(data));
                 alert("Logged in!");
+                window.location.href = "/project-posts"
             }
             else if (Number(data) === -3){
                 alert("No account.")
