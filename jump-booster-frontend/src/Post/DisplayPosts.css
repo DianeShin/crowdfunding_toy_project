@@ -1,0 +1,81 @@
+#pageDiv{
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+}
+#postTitle{
+    font-family: 'Battambang', cursive;
+    padding-top: 20px;
+    text-align: center;
+}
+
+#searchTab{
+    text-align: right;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+#searchTextArea{
+    resize: none;
+    margin-right: 10px;
+}
+
+#postContainerDiv {
+    width: 95%;
+    margin-left: auto;
+    margin-right: auto;
+    overflow-x: auto;
+    display: flex;
+    flex-wrap: nowrap;
+}
+
+#postContainerDiv::-webkit-scrollbar {
+    height: 8px;
+}
+
+#postContainerDiv::-webkit-scrollbar-thumb {
+    background: darkgrey;
+    border-radius: 10px;
+}
+
+.titleImg{
+    margin-top: 20%;
+    margin-bottom: 10%;
+}
+
+.postDiv {
+    text-align: center;
+    background-color: rgba(170, 170, 170, 0.4);
+    width: 300px;
+    height: 500px;
+    margin: 10px;
+    flex: 0 0 auto;
+}
+
+.postLink{
+    font-family: 'Battambang', cursive;
+    text-decoration: none;
+}
+
+.postContent{
+    font-family: 'Rokkitt', sans-serif;
+}
+
+.author{
+    font-family: 'Rokkitt', sans-serif;
+}
+img{
+    margin-top:100px;
+}
+
+.slider{
+    height: 20px;
+}
+
+.rightAlignedDiv{
+    margin-right: 10px;
+    text-align: right;
+}
+
+.moneyP{
+    font-family: 'Rokkitt', sans-serif;
+}
