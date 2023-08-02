@@ -4,6 +4,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.Optional;
+
 @RestController
 public class AccountController {
 
@@ -28,6 +30,12 @@ public class AccountController {
 
         // -3 if no acct, -2 if wrong role, -1 if wrong password, positive int if userId.
         return ResponseEntity.ok(result);
+    }
+
+    @PostMapping("account/get-account-by-id")
+    public ResponseEntity<Account> getAccountById(@RequestBody Long userId){
+        Optional<Account> result = service.getAccountById(userId);
+        return result.map(ResponseEntity::ok).orElseGet(() -> ResponseEntity.notFound().build());
     }
 
     @DeleteMapping("account/deregister")

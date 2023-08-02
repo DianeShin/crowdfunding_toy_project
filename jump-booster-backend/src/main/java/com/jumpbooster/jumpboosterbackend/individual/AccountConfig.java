@@ -9,7 +9,7 @@ import org.springframework.context.annotation.Configuration;
 public class AccountConfig {
     @Bean
     @ConfigurationProperties(prefix = "spring.datasource")
-    CommandLineRunner commandLineRunner(AccountRepository repository) {
+    CommandLineRunner accountCommandLineRunner(AccountRepository repository) {
         byte[] a = new byte[0];
         return args -> {
             Account Diane = new Account(

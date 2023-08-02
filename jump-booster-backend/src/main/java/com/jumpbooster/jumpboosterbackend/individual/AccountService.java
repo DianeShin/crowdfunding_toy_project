@@ -42,4 +42,8 @@ public class AccountService {
         else if (!individualOptional.get().getPassword().equals(password)) return -1L;
         else return individualOptional.get().getUserId();
     }
+
+    public Optional<Account> getAccountById(Long userId) {
+        return repository.findAccountByUserId(userId);
+    }
 }
