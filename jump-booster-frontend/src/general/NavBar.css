@@ -1,0 +1,20 @@
+.navBarLink:link, .navBarLink:visited {
+    font-family: 'Battambang', cursive;
+    color : black;
+    padding-left : 50px;
+    padding-right : 50px;
+    font-size : 20px;
+    text-decoration: none;
+}
+
+.navBarLink:hover {
+    background-color: white;
+    color : black;
+    transition: background-color .3s ease-in;
+}
+
+.navigationBar {
+    background-color : rgba(31, 80, 255, 0.5);
+    height : 30px;
+    left : 0;
+}
