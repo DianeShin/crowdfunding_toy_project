@@ -20,7 +20,6 @@ public class Account {
     String username;
     String email;
     String password;
-    @Lob
     byte[] profileImg;
     String role;
 
