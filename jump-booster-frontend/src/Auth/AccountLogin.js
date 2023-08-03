@@ -1,10 +1,14 @@
-import {useContext, useState} from "react";
+import React, {useContext, useEffect, useState} from "react";
 import {Link} from "react-router-dom";
 import './AccountLogin.css'
-import {AuthContext} from "./Authenticator";
+import {ContextProvider} from "../general/ContextElem";
 export function AccountLogin(props) {
     const [loginInfo, setLoginInfo] = useState({email: "", username: "", user: "", role: props.role});
-    const {setUserId} = useContext(AuthContext);
+    const {setUserId, setHeader} = useContext(ContextProvider);
+
+    useEffect(() => {
+        setHeader(false);
+    }, [])
     const handleChange = (event) => {
         const name = event.target.name;
         const value = event.target.value;
@@ -26,7 +30,6 @@ export function AccountLogin(props) {
             else throw new Error("Something went wrong.");
         })
         .then((data) => {
-            alert(data);
             if (Number(data) > 0){
                 setUserId(data);
                 sessionStorage.setItem('loginUserId', JSON.stringify(data));
@@ -50,10 +53,12 @@ export function AccountLogin(props) {
     }
     return(
         <div id="page">
+            <Link to="/"><img src="/image/logo.png" alt="logo" id="logo"/><br/></Link>
             <div className="container">
                 <div className="center-wrapper">
                     <div id="login-div">
                         <div className="loginSection" id="login-decoration-div">
+
                             {props.role === "individual" && (
                                 <>
                                     <h3>Invest,</h3><br/><br/>

@@ -3,10 +3,8 @@ body{
 }
 
 #home-title{
-    text-align: center;
     margin-top: 50px;
     margin-bottom: 150px;
-    font-family: 'Battambang', cursive;
 }
 
 .account-type-container{
@@ -57,4 +55,8 @@ body{
     to {
         transform: translate(0,0);
     }
+}
+
+#footer{
+    display: none;
 }

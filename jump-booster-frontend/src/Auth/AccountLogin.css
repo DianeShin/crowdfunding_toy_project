@@ -5,9 +5,12 @@
 
 #page{
     background-color: rgba(154, 176, 255, 0.4);
-}
-.container{
+    text-align: center;
     height: 100vh;
+}
+
+.container{
+    height: 65vh;
     display: flex;
     align-items: center;
     justify-content: center;

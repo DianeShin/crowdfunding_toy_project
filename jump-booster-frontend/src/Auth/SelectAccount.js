@@ -2,11 +2,19 @@ import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
 import {faBriefcase, faUser} from "@fortawesome/free-solid-svg-icons";
 import {Link} from "react-router-dom";
 import './SelectAccount.css'
+import {useContext, useEffect} from "react";
+import {ContextProvider} from "../general/ContextElem";
 
 export function SelectAccount(){
+    const {setHeader} = useContext(ContextProvider);
+
+    useEffect(() => {
+        setHeader(false);
+    }, [])
+
     return(
         <>
-            <h1 id="home-title">Who are you?</h1>
+            <h1 className="title-font center" id="home-title">Who are you?</h1>
             <div id="account-type-container">
                 <Link to="/individual-login" className="login-link">
                     <div className="accountType" id="individual-account-type">
