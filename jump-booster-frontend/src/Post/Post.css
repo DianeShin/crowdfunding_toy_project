@@ -1,0 +1,51 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+
+#post-container{
+    display: flex;
+    justify-content: space-between;
+    overflow-anchor: none;
+}
+
+#title-img{
+    margin-top: 10px;
+    width: 90%;
+}
+
+#post-div{
+    width: 50%;
+    height: 100vh;
+    text-align: center;
+    border-right: grey 2px solid;
+    overflow-y : auto;
+    flex-wrap: nowrap;
+}
+
+#payDiv{
+    width: 50%;
+    text-align: center;
+}
+
+button{
+    font-family: 'Battambang', cursive;
+    text-decoration: none;
+    margin: 0 10px;
+    border: none;
+}
+
+#report-link{
+    color:grey;
+}
+
+#content-img{
+    width : 95%;
+}
+
+#fund-button{
+    background-color: rgb(31, 113, 255);
+    height: 2em;
+    border-radius: 1em;
+    width: 10em;
+}

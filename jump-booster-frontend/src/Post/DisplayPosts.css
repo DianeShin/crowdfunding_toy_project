@@ -1,12 +1,27 @@
-#pageDiv{
-    margin: 0;
+#outerPageDiv{
     display: flex;
     flex-direction: column;
+    overflow-y: auto;
+    height: 100vh;
 }
-#postTitle{
-    font-family: 'Battambang', cursive;
+
+#pageDiv{
+    display: flex;
+    flex-direction: column;
+    margin-bottom : 100px;
+}
+
+#display-title{
     padding-top: 20px;
-    text-align: center;
+}
+#posts-logo{
+    margin: 10px 0 1px 0;
+    width : 8em;
+}
+
+#img-div{
+    border: 0 solid darkgrey;
+    border-bottom-width: 1px;
 }
 
 #searchTab{
@@ -14,15 +29,16 @@
     margin-top: 20px;
     margin-bottom: 20px;
 }
+
 #searchTextArea{
     resize: none;
     margin-right: 10px;
+    border-width: 0 0 2px 0;
+    height : 20px;
 }
 
 #postContainerDiv {
     width: 95%;
-    margin-left: auto;
-    margin-right: auto;
     overflow-x: auto;
     display: flex;
     flex-wrap: nowrap;
@@ -40,6 +56,7 @@
 .titleImg{
     margin-top: 20%;
     margin-bottom: 10%;
+    width: 95%;
 }
 
 .postDiv {
@@ -47,8 +64,15 @@
     background-color: rgba(170, 170, 170, 0.4);
     width: 300px;
     height: 500px;
-    margin: 10px;
+    margin: 50px 10px 50px;
     flex: 0 0 auto;
+    border-radius: 20px;
+}
+.postDiv:hover {
+    width: 400px;
+    height: 600px;
+    margin: 0;
+    transition : width 1s ease, height 1s ease, margin 1s ease;
 }
 
 .postLink{
@@ -63,9 +87,6 @@
 .author{
     font-family: 'Rokkitt', sans-serif;
 }
-img{
-    margin-top:100px;
-}
 
 .slider{
     height: 20px;
@@ -78,4 +99,8 @@ img{
 
 .moneyP{
     font-family: 'Rokkitt', sans-serif;
+}
+
+#footer{
+    display: block;
 }

@@ -1,12 +1,12 @@
-import {useContext, useEffect, useState} from "react";
-import {AuthContext} from "../Auth/Authenticator";
+import React, {useContext, useEffect, useState} from "react";
+import {ContextProvider} from "../general/ContextElem";
 import {Link} from "react-router-dom";
 import {getAccountById} from "../Helper/accountHelper";
 import './DisplayPosts.css'
-function Blog() {
+function DisplayPosts() {
     const [originalPosts, setOriginalPosts] = useState([]);
     const [blogPosts, setBlogPosts] = useState([]);
-    const {userId} = useContext(AuthContext);
+    const {userId} = useContext(ContextProvider);
 
     useEffect(() => {
         fetch("/fetchAllPosts", {
@@ -59,37 +59,48 @@ function Blog() {
     function handleChange(){
         const searchTextArea = document.getElementById("searchTextArea");
         setBlogPosts(originalPosts);
-        setBlogPosts((prevPosts) => prevPosts.filter((post) => post.content.includes(searchTextArea.value)))
+        setBlogPosts((prevPosts) => prevPosts.filter((post) => post.title.includes(searchTextArea.value)))
     }
-    return(
-        <div id="pageDiv">
-            <h2 id="postTitle">Project Posts</h2>
-            <div id="searchTab">
-                <textarea id="searchTextArea" placeholder="Search..." onChange={handleChange}/>
-            </div>
-            <div id="postContainerDiv">
-                {blogPosts && blogPosts.reverse().map((post) => (
-                    <div className="postDiv" key={post.id}>
-                        <img src={`data:image/jpeg;base64,${post.titleImg}`} alt="titleImg" className="titleImg"/>
-                        <Link className="postLink" to={post.title + "/" + post.postId}><h2 className="postTitle">{post.title}</h2></Link>
-                        <p className="postContent">{post.content}</p>
-                        <input type="range" min="0" max={post.goalMoney} value={post.currentMoney} className="moneyBar" />
-                        <p className="moneyP">{post.currentMoney} EUR/{post.goalMoney} EUR</p>
-                        <div className="rightAlignedDiv">
-                            <p className="author">By : {post.username}</p>
-                        </div>
-                        <div className="rightAlignedDiv">
-                            { userId === post.userId && <button className="deleteButton" onClick={() => handleDelete(post.postId)}>Delete Post</button>}
-                        </div>
-                    </div>
-                ))}
-            </div>
 
-            {blogPosts.length === 0 &&
-                <h3 id={"no-post-h"}>No posts! Write something ;)</h3>
-            }
+    function copyContent(){
+        let button = document.getElementById("emailButton");
+        navigator.clipboard.writeText(button.innerText);
+        alert("Copied!");
+    }
+
+    return(
+        <div id="outerPageDiv">
+            <div id="pageDiv">
+                <div className="center" id="top-bar">
+                    <h1 className="title-font" id="display-title">Project Posts</h1>
+                </div>
+
+                <div id="searchTab">
+                    <textarea id="searchTextArea" placeholder="Search by title..." onChange={handleChange}/>
+                </div>
+                <div id="postContainerDiv">
+                    {blogPosts && blogPosts.reverse().map((post) => (
+                        <div className="postDiv" key={post.id}>
+                            <img src={`data:image/jpeg;base64,${post.titleImg}`} alt="titleImg" className="titleImg"/>
+                            <Link className="postLink" to={post.title + "/" + post.postId}><h2 className="postTitle">{post.title}</h2></Link>
+                            <p className="postContent">{post.content}</p>
+                            <input type="range" min="0" max={post.goalMoney} value={post.currentMoney} className="moneyBar" />
+                            <p className="moneyP">{post.currentMoney/post.goalMoney*100}%</p>
+                            <div className="rightAlignedDiv">
+                                <p className="author">By : {post.username}</p>
+                            </div>
+                        </div>
+                    ))}
+                </div>
+
+                {blogPosts.length === 0 &&
+                    <h3 id={"no-post-h"}>No posts! Write something ;)</h3>
+                }
+
+            </div>
         </div>
+
     )
 }
 
-export default Blog;
+export default DisplayPosts;
