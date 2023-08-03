@@ -5,7 +5,7 @@ export const ContextProvider = createContext("");
 
 export default ({children}) => {
     const [userId, setUserId] = useState("");
-    const [header, setHeader] = useState(true);
+    const [headerFooter, setHeaderFooter] = useState(true);
 
     useEffect(() => {
         // fetch info
@@ -15,30 +15,36 @@ export default ({children}) => {
         if (userId){
             getAccountById(userId)
                 .then((userObj) => {
+                    document.getElementById('login-info').value = userObj.username;
                     setUserId(userId);
                 })
+        }
+        else{
+            document.getElementById('login-info').value = "Please log-in!";
         }
 
 
     }, [userId]);
 
     useEffect(() => {
-        if (header){
-            document.getElementById('header').style.display = 'block';
+        if (headerFooter){
+            document.getElementById('headerFooter').style.display = 'block';
+            document.getElementById('footer').style.display = 'block';
 
         }
         else{
-            document.getElementById('header').style.display = 'none';
+            document.getElementById('headerFooter').style.display = 'none';
+            document.getElementById('footer').style.display = 'none';
         }
-    }, [header])
+    }, [headerFooter])
 
     return(
         <ContextProvider.Provider
             value={{
                 userId,
                 setUserId,
-                header,
-                setHeader
+                header: headerFooter,
+                setHeader: setHeaderFooter
             }}>
             {children}
         </ContextProvider.Provider>
