@@ -4,7 +4,7 @@ export function getAccountById(userId) {
         userId: userId
     };
 
-    return fetch("/account/get-account-by-id", { // Step 1: Return the fetch promise
+    return fetch("/account/get-account-by-id", {
         method: "POST",
         headers: {
             "Content-Type": "application/json"
