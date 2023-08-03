@@ -1,0 +1,16 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+#home-div{
+    text-align: center;
+}
+#logo{
+    margin: 0;
+    width: 10em;
+}
+
+#text{
+    padding-top : 100px;
+    height: 56vh;
+}
