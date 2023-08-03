@@ -1,7 +1,5 @@
 package com.jumpbooster.jumpboosterbackend.post;
 
-import com.jumpbooster.jumpboosterbackend.individual.Account;
-import com.jumpbooster.jumpboosterbackend.individual.AccountRepository;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.context.annotation.Bean;
@@ -10,7 +8,6 @@ import org.springframework.context.annotation.Configuration;
 import java.io.File;
 import java.io.IOException;
 import java.nio.file.Files;
-import java.nio.file.Path;
 import java.time.LocalDateTime;
 import java.util.List;
 
@@ -21,7 +18,6 @@ public class PostConfig {
     CommandLineRunner postCommandLineRunner(PostRepository repository) throws IOException {
         File file = new File("/home/diane/Desktop/crowdfunding_toy_project/jump-booster-backend/src/main/java/com/jumpbooster/jumpboosterbackend/post/titleImgStorage/example.jpeg");
         byte[] fileContent = Files.readAllBytes(file.toPath());
-        byte[] a = new byte[0];
         return args -> {
             Post newPost = new Post(
                 1L,
