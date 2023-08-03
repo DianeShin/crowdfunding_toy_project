@@ -1,0 +1,30 @@
+#title{
+    margin-top : 20px;
+}
+
+#report-post-div{
+    text-align: center;
+}
+
+#complaint{
+    height : 2em;
+    font-size : 1.3em;
+    margin: 100px 0;
+    width : 80%;
+    font-family: 'Rokkitt', sans-serif;
+}
+
+#content{
+    width: 80%;
+    height : 10em;
+    font-size : 1.2em;
+    font-family: 'Rokkitt', sans-serif;
+}
+
+#submit-button{
+    background-color: rgba(31, 113, 255, 1);
+    color: white;
+    width: 15em;
+    border-radius: 5em;
+    margin-top: 20em;
+}
