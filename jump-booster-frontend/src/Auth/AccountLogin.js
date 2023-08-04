@@ -8,7 +8,7 @@ export function AccountLogin(props) {
 
     useEffect(() => {
         setHeader(false);
-    }, [])
+    })
     const handleChange = (event) => {
         const name = event.target.name;
         const value = event.target.value;
@@ -53,7 +53,7 @@ export function AccountLogin(props) {
     }
     return(
         <div id="page">
-            <Link to="/"><img src="/image/logo.png" alt="logo" id="logo"/><br/></Link>
+            <Link to="/"><img src="/image/logo.png" alt="logo" id="logo" onClick={() => {setHeader(true)}}/><br/></Link>
             <div className="container">
                 <div className="center-wrapper">
                     <div id="login-div">
