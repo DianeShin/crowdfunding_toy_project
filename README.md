@@ -53,10 +53,18 @@ This is a full-stack project making a website where you can upload crowdfunding 
 - [X] 03/08/2023 : Add logo
 - [X] 03/08/2023 : Add login info display
 - [X] 03/08/2023 : Enhance selective header/footer display
-- [ ] Modify login info display to look better
-- [ ] Enhance post display
-- [ ] Implement pay logic
+- [X] 04/08/2023 : Force user to log in to report
+- [X] 04/08/2023 : Implement sign-up on frontend/backend
+- [X] 04/08/2023 : Fix where f5 from acct creation doesn't put the header/footer back
+- [ ] Push login info into header properly
 - [ ] Implement comment function on frontend/backend
+- [ ] Implement project owner frontend/backend
+- [ ] Implement administrator frontend/backend
+- [ ] Make it go to top of window when post clicked
+- [ ] Implement pay logic
+- [ ] Enhance post display
+- [ ] Enhance money bar look
+- [ ] Improve CreateIndividualAccount UI/UX and namings
 
 ## Design
 [Check here](https://www.figma.com/file/yn4m2ThcUjPmhrz855Voor/Untitled?type=design&node-id=0%3A1&mode=design&t=4pgaDM5SX3EfIeDg-1 "Go to Figma")
@@ -77,4 +85,5 @@ npm install --save @fortawesome/react-fontawesome
 <ul>
     <li>CSS animations</li>
     <li>Image transaction</li>
+    <li>Image upload from React and processing via backend. Fixed by formData on frontend, MultipartFile on backend.</li>
 </ul>
