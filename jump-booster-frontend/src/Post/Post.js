@@ -1,10 +1,12 @@
-import React, {useEffect, useState} from "react";
+import React, {useContext, useEffect, useState} from "react";
 import './Post.css'
 import {getAccountById} from "../Helper/accountHelper";
 import {Link} from "react-router-dom";
 import ReportPost from "./ReportPost";
+import {ContextProvider} from "../general/ContextElem";
 
 const Post = (props) => {
+    const {userId} = useContext(ContextProvider);
     const [post, setPost] = useState('');
     const [tabMode, setTabMode] = useState('Description');
     const [userName, setUserName] = useState('');
@@ -50,7 +52,16 @@ const Post = (props) => {
                 <div className= "right-bottom-div">
 
                 </div>
-                <Link to={"/report-project/" + post.postId} id="report-link">Is there a problem? Report the project</Link>
+                {userId === '' ? (
+                    <>
+                        <Link to="/select-account" id="report-link" onClick={() => alert("You need to login to report.")}>Is there a problem? Report the project</Link>
+                    </>
+                ) : (
+                    <>
+                        <Link to={"/report-project/" + post.postId} id="report-link">Is there a problem? Report the project</Link>
+                    </>
+                )}
+
             </div>
             <div id="payDiv">
                 <h1 className="title-font">{post.title}</h1>
