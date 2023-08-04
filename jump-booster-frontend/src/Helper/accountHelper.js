@@ -18,7 +18,4 @@ export function getAccountById(userId) {
         .then((accountObj) => {
             return accountObj; // Step 2: Return the userObj
         })
-        .catch((error) => {
-            alert(error.message);
-        });
 }
