@@ -9,7 +9,7 @@ export const NavBar = () => {
         <>
             <nav className = "navigationBar">
                 <Link className = "navBarLink" to = "/">Home</Link>
-                <Link className = "navBarLink" to = "/project-posts">projects</Link>
+                <Link className = "navBarLink" to = "/project-posts">Projects</Link>
 
                 {userId === '' ? (
                     <>
