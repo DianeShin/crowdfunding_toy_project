@@ -1,0 +1,79 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+
+#page{
+    background-color: rgba(154, 176, 255, 0.4);
+    text-align: center;
+    height: 100vh;
+}
+
+.container{
+    height: 65vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+}
+.center-wrapper {
+    display: flex;
+    align-items: center;
+}
+
+#login-div{
+    background-color: rgba(154, 176, 255, 1);
+    display: flex;
+    align-items: center;
+    border-radius: 20px;
+    width: 800px;
+
+}
+
+.loginSection{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    border-radius: 20px;
+    width: 60%;
+    height: 500px;
+    text-align: center;
+    font-family: 'Rokkitt', sans-serif;
+}
+
+#login-decoration-div{
+    background-color: rgba(31, 80, 255, 0.7);
+    color: white;
+    font-family: 'Battambang', cursive;
+}
+
+input{
+    border-width: 0 0 1px 0;
+    margin: 15px;
+    background-color: rgba(154, 176, 255, 1);
+    width: 250px;
+    font-size: 16px;
+    font-family: 'Rokkitt', sans-serif;
+}
+
+.loginInput:focus{
+    outline: none;
+}
+
+#create-individual-account-button{
+    width: 100px;
+    background-color: rgba(31, 80, 255, 0.7);
+    border-radius: 10px;
+    height: 25px;
+    border: 0;
+}
+#create-individual-account-button:hover{
+    background-color: grey;
+    transition: 1s ease;
+}
+
+a{
+    color: black;
+}
+

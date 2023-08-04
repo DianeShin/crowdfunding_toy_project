@@ -3,7 +3,9 @@ package com.jumpbooster.jumpboosterbackend.individual;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.multipart.MultipartFile;
 
+import java.io.IOException;
 import java.util.Optional;
 
 @RestController
@@ -15,8 +17,15 @@ public class AccountController {
     public AccountController(AccountService service){this.service = service;}
 
     @PostMapping("account/register")
-    public void registerNewAccount(@RequestBody Account account){
-        service.addAccount(account);
+    public void registerNewAccount( @RequestParam("username") String username,
+                                    @RequestParam("email") String email,
+                                    @RequestParam("password") String password,
+                                    @RequestParam("profileImg") MultipartFile profileImg,
+                                    @RequestParam("role") String role
+
+    ) throws IOException {
+        Account newAccount = new Account(username, email, password, profileImg.getBytes(), role);
+        service.addAccount(newAccount);
     }
 
     @PostMapping("account/login")
