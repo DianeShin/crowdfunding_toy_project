@@ -15,6 +15,7 @@ import SignOut from "../Auth/SignOut";
 // CSS
 import './App.css'
 import {getAccountById} from "../Helper/accountHelper";
+import CreateIndividualAccount from "../Auth/CreateIndividualAccount";
 
 function App() {
     const [projectPosts, setProjectPosts] = useState([]);
@@ -30,9 +31,6 @@ function App() {
                     setUsername(accountObj.username);
                     setProfileImg(accountObj.profileImg);
                 })
-                .catch((error) => {
-                    // Handle the error if needed
-                });
         }
         fetch("/fetchAllPosts", {
             method: "GET",
@@ -87,10 +85,12 @@ function App() {
                     <Route path="/select-account" element={<SelectAccount/>}/>
                     <Route path="/individual-login" element={<AccountLogin role="individual"/>}/>
                     <Route path="/business-login" element={<AccountLogin role="business"/>}/>
+                    <Route path="/create-individual-account" element={<CreateIndividualAccount/>}/>
                     <Route path="/project-posts" element={<DisplayPosts />}/>
+
                     {projectPosts && projectPosts.map((post) => (
                         <>
-                            <Route path={"project-posts/" + post.title + "/" + post.postId} element={<Post id={post.postId} />}/>
+                            <Route path={"/project-posts/" + post.title + "/" + post.postId} element={<Post id={post.postId} />}/>
                             <Route path={"/report-project/" + post.postId} element={<ReportPost id={post.postId} />}/>
                         </>
                     ))}
