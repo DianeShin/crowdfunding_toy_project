@@ -1,6 +1,10 @@
 import React, {useContext, useEffect, useState} from 'react';
-import {Routes, Route, BrowserRouter, Link} from 'react-router-dom';
+import {Routes, Route, BrowserRouter, Link, useLocation} from 'react-router-dom';
 import {ContextProvider} from "./ContextElem";
+import {getAccountById} from "../Helper/accountHelper";
+
+// CSS
+import './App.css'
 
 // elements
 import SelectAccount from "../Auth/SelectAccount";
@@ -11,11 +15,9 @@ import ReportPost from "../Post/ReportPost";
 import Home from "./Home";
 import NavBar from "./NavBar";
 import SignOut from "../Auth/SignOut";
-
-// CSS
-import './App.css'
-import {getAccountById} from "../Helper/accountHelper";
 import CreateIndividualAccount from "../Auth/CreateIndividualAccount";
+import MyProjects from "../ProjectOwner/MyProjects";
+import CreatePost from "../ProjectOwner/CreatePost";
 
 function App() {
     const [projectPosts, setProjectPosts] = useState([]);
@@ -58,23 +60,19 @@ function App() {
         window.location.href = "/";
     };
 
-  return (
-    <BrowserRouter>
+    return (
         <div id="outerPageDiv">
             <div id="headerFooter" className="center">
                 <Link to="/"><img src="/image/logo.png" alt="logo" id="logo"/><br/></Link>
                 {userId === '' ? (
                     <>
-                        <h3 id="login-info" className="right content-font">Please log-in!</h3>
+                        <h3 id="login-info-text" className="right content-font">Please log-in!</h3>
                     </>
                 ) : (
-                    <>
-                        <div className="right loginInfo">
-                            <img src={`data:image/jpeg;base64,${profileImg}`} alt="profileImg" id="profileImg"/>
-                            <h3 id="login-info" className="content-font">{"Welcome " + username + " !"}</h3>
-                        </div>
-
-                    </>
+                    <div className="right">
+                        <img src={`data:image/jpeg;base64,${profileImg}`} alt="profileImg" id="profileImg"/>
+                        <h3 id="login-info-text" className="content-font">{"Welcome " + username + " !"}</h3>
+                    </div>
                 )}
 
                 <NavBar/>
@@ -87,13 +85,15 @@ function App() {
                     <Route path="/business-login" element={<AccountLogin role="business"/>}/>
                     <Route path="/create-individual-account" element={<CreateIndividualAccount/>}/>
                     <Route path="/project-posts" element={<DisplayPosts />}/>
-
+                    <Route path="/my-projects" element={<MyProjects/>}/>
+                    <Route path="/create-project" element={<CreatePost/>}/>
                     {projectPosts && projectPosts.map((post) => (
                         <>
                             <Route path={"/project-posts/" + post.title + "/" + post.postId} element={<Post id={post.postId} />}/>
                             <Route path={"/report-project/" + post.postId} element={<ReportPost id={post.postId} />}/>
                         </>
                     ))}
+
                     {userId === '' ? (
                         <Route path="/select-account" element={<SelectAccount />} />
                     ) : (
@@ -107,8 +107,6 @@ function App() {
                 <p>Github : <button id="emailButton" className="footer-button" onClick={() => window.location.href = "https://github.com/DianeShin"}>Here</button></p>
             </div>
         </div>
-
-    </BrowserRouter>
   );
 }
 

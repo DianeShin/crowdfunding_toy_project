@@ -15,12 +15,12 @@ export default ({children}) => {
         if (userId){
             getAccountById(userId)
                 .then((userObj) => {
-                    document.getElementById('login-info').value = userObj.username;
+                    document.getElementById('login-info-text').value = userObj.username;
                     setUserId(userId);
                 })
         }
         else{
-            document.getElementById('login-info').value = "Please log-in!";
+            document.getElementById('login-info-text').value = "Please log-in!";
         }
 
 
