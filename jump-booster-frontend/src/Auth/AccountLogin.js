@@ -34,7 +34,9 @@ export function AccountLogin(props) {
                 setUserId(data);
                 sessionStorage.setItem('loginUserId', JSON.stringify(data));
                 alert("Logged in!");
-                window.location.href = "/project-posts"
+                if(props.role === "individual") window.location.href = "/project-posts";
+                else if (props.role === "business") window.location.href = "/my-projects";
+                else if (props.role === "administrator") window.location.href = "/review-projects"
             }
             else if (Number(data) === -3){
                 alert("No account.")
