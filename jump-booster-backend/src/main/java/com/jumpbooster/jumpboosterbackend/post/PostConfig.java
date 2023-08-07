@@ -21,7 +21,7 @@ public class PostConfig {
         return args -> {
             Post newPost = new Post(
                 1L,
-                    1L,
+                    2L,
                     "Sample post",
                     fileContent,
                     "This is just a sample.",
@@ -35,7 +35,7 @@ public class PostConfig {
             );
             Post newPost1 = new Post(
                     2L,
-                    1L,
+                    2L,
                     "Sample post2",
                     fileContent,
                     "This is just a sample2.",
@@ -49,13 +49,13 @@ public class PostConfig {
             );
             Post newPost2 = new Post(
                     3L,
-                    1L,
+                    2L,
                     "Sample post3",
                     fileContent,
                     "This is just a sample3.",
                     fileContent,
                     LocalDateTime.of(2023, 10, 30, 23, 4),
-                    1,
+                    -1,
                     false,
                     30L,
                     500L
