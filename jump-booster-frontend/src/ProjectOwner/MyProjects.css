@@ -1,0 +1,62 @@
+#myPostContainerDiv{
+    text-align: center;
+    background-color: #D9D9D9;
+    border-radius: 20px;
+    margin: 5% 10%;
+}
+
+.myPostDiv{
+    display: flex;
+    padding: 3%;
+    margin: 5%;
+    background-color: white;
+    border-radius: 20px;
+    align-items: center;
+}
+
+#addText{
+    margin: auto;
+    text-align: center;
+}
+
+.myPostTitle{
+    vertical-align: center;
+    margin: auto;
+}
+
+.myPostTitleImg{
+    width: 100px;
+    height: 100px;
+    border-radius: 50px;
+    margin: 0 10px 0 0;
+}
+.myPostMoneyBar{
+    width: 40%;
+}
+
+#status-indicator{
+    font-size: 15px;
+    width: 20%;
+    border-radius: 10px;
+    margin: 0 0 0 50px;
+}
+
+.pending{
+    background-color: rgb(255, 249, 99);
+}
+
+.active{
+    background-color: rgb(18, 255, 42);
+}
+
+.aborted{
+    background-color: rgb(255, 0, 0);
+}
+
+.aborted:hover {
+    background-color: rgba(255, 0, 0, 0.5);
+    width: 25%;
+    transition: background-color 0.5s ease;
+
+
+}

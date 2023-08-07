@@ -1,0 +1,26 @@
+#createPostDiv{
+    background-color: #D9D9D9;
+    width: 80%;
+    text-align: center;
+    margin: 20px auto;
+    border-radius: 20px;
+    padding: 20px;
+}
+
+#contentInput{
+    height: 200px;
+}
+input{
+    font-size: 20px;
+    width: 80%;
+    border-radius: 5px;
+    border: 0;
+    background-color: white;
+}
+
+.fileInput::file-selector-button{
+    font-family: 'Rokkitt', sans-serif;
+    font-size: 16px;
+    border: none;
+    background-color: rgba(154, 176, 255);
+}
