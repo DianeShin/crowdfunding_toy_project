@@ -64,6 +64,19 @@ public class Post {
         this.goalMoney = goalMoney;
     }
 
+    public Post(Long userId, String title, byte[] titleImg, String content, byte[] contentImg, LocalDateTime goalDateTime, Long goalMoney) {
+        this.userId = userId;
+        this.title = title;
+        this.titleImg = titleImg;
+        this.content = content;
+        this.contentImg = contentImg;
+        this.goalDateTime = goalDateTime;
+        this.status = 0;
+        this.completed = false;
+        this.currentMoney = 0L;
+        this.goalMoney = goalMoney;
+    }
+
     public Long getPostId() {
         return postId;
     }
