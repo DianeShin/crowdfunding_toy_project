@@ -56,9 +56,15 @@ This is a full-stack project making a website where you can upload crowdfunding 
 - [X] 04/08/2023 : Force user to log in to report
 - [X] 04/08/2023 : Implement sign-up on frontend/backend
 - [X] 04/08/2023 : Fix where f5 from acct creation doesn't put the header/footer back
+- [X] 07/08/2023 : Implement project owner on backend
+- [X] 07/08/2023 : Implement project display for project owner on frontend
+- [X] 07/08/2023 : Modify project display layout
+- [X] 07/08/2023 : Implement project upload on frontend/backend
+- [X] 07/08/2023 : Create Administrator on backend
 - [ ] Push login info into header properly
+- [ ] Think about what info is exclusive in Account
 - [ ] Implement comment function on frontend/backend
-- [ ] Implement project owner frontend/backend
+- [ ] Show reason of project abortion 
 - [ ] Implement administrator frontend/backend
 - [ ] Make it go to top of window when post clicked
 - [ ] Implement pay logic
