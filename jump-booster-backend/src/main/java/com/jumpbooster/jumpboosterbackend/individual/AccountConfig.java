@@ -8,6 +8,7 @@ import org.springframework.context.annotation.Configuration;
 import java.io.File;
 import java.io.IOException;
 import java.nio.file.Files;
+import java.util.List;
 
 @Configuration
 public class AccountConfig {
@@ -24,7 +25,14 @@ public class AccountConfig {
                     fileContent,
                     "individual"
             );
-            repository.save(Diane);
+            Account DianeBuss = new Account(
+                    "Diane",
+                    "jadore845@gmail.com",
+                    "b",
+                    fileContent,
+                    "business"
+            );
+            repository.saveAll(List.of(Diane,DianeBuss));
         };
     }
 }
