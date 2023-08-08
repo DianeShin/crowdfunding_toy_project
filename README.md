@@ -25,7 +25,8 @@ This is a full-stack project making a website where you can upload crowdfunding 
   <li>Administrator</li>
   <ul>
     <li>Approve new projects</li>
-    <li>Review malicious projects and remove</li>    
+    <li>Review malicious projects and remove</li>
+    <li>Administrators get limited functionality. They need a specific link to login(/administrator-login), and not allowed to create or find account.</li>
   </ul>
 </ul>
 
@@ -60,16 +61,22 @@ This is a full-stack project making a website where you can upload crowdfunding 
 - [X] 07/08/2023 : Implement project display for project owner on frontend
 - [X] 07/08/2023 : Modify project display layout
 - [X] 07/08/2023 : Implement project upload on frontend/backend
-- [X] 07/08/2023 : Create Administrator on backend
-- [ ] Push login info into header properly
+- [X] 07/08/2023 : Create Administrator on backend -> merged with normal Account
+- [X] 08/08/2023 : Implement Administrator login on frontend
+- [X] 08/08/2023 : Display complaints to Administrator
+- [X] 08/08/2023 : Make administrators to view complaints
+- [X] 08/08/2023 : Push login info into header properly
+- [X] 08/08/2023 : Modify tab look
+- [ ] Make administrators handle complaints
 - [ ] Think about what info is exclusive in Account
 - [ ] Implement comment function on frontend/backend
 - [ ] Show reason of project abortion 
-- [ ] Implement administrator frontend/backend
 - [ ] Make it go to top of window when post clicked
 - [ ] Implement pay logic
+- [ ] Implement password finding(email functionality in general)
 - [ ] Enhance post display
 - [ ] Enhance money bar look
+- [ } Enhance complaint display look
 - [ ] Improve CreateIndividualAccount UI/UX and namings
 
 ## Design
