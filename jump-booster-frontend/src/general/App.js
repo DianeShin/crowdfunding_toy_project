@@ -109,10 +109,10 @@ function App() {
                     <Route path="/administrator-login" element={<AccountLogin role="administrator"/>}/>
                 </Route>
             </Routes>
-            <div id="footer">
-                <p>Developer : Diane Shin</p>
-                <p>Email : <button id="emailButton" className="footer-button" onClick={copyContent}>jadore845@snu.ac.kr</button></p>
-                <p>Github : <button id="emailButton" className="footer-button" onClick={() => window.location.href = "https://github.com/DianeShin"}>Here</button></p>
+            <div id="footer" >
+                <p className="content-font">Developer : Diane Shin</p>
+                <p className="content-font">Email : <button id="emailButton" className="footer-button title-font" onClick={copyContent}>jadore845@snu.ac.kr</button></p>
+                <p className="content-font">Github : <button id="emailButton" className="footer-button title-font" onClick={() => window.location.href = "https://github.com/DianeShin"}>Here</button></p>
             </div>
         </BrowserRouter>
         </div>
