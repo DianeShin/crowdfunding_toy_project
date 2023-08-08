@@ -2,7 +2,6 @@ import React, {useContext, useEffect, useState} from "react";
 import './Post.css'
 import {getAccountById} from "../Helper/accountHelper";
 import {Link} from "react-router-dom";
-import ReportPost from "./ReportPost";
 import {ContextProvider} from "../general/ContextElem";
 
 const Post = (props) => {
@@ -10,8 +9,10 @@ const Post = (props) => {
     const [post, setPost] = useState('');
     const [tabMode, setTabMode] = useState('Description');
     const [userName, setUserName] = useState('');
+    const [userRole, setUserRole] = useState('');
 
     useEffect(() => {
+        getAccountById(userId).then((userObj) => setUserRole(userObj.role));
         fetch("/fetchBlogPostById", {
             method: "POST",
             headers: {
@@ -26,6 +27,46 @@ const Post = (props) => {
             });
 
     }, []);
+
+    function handleDelete(postId){
+        const formData = new FormData();
+        formData.append("postId", postId);
+        formData.append("userId", userId);
+
+        fetch("/post/delete", {
+            method: "DELETE",
+            body: formData
+        })
+            .then((response) => response.text())
+            .then((text) => {
+                if (text === "OK"){
+                    alert("Post deleted.");
+                    window.location.href = "/complaints"
+                }
+                else alert(text);
+            })
+            .catch((error) => alert("Something didn't go right."))
+    }
+
+    function handleAbort(postId){
+        const formData = new FormData();
+        formData.append("postId", postId);
+        formData.append("userId", userId);
+
+        fetch("/post/abort", {
+            method: "POST",
+            body: formData
+        })
+            .then((response) => response.text())
+            .then((text) => {
+                if (text === "OK"){
+                    alert("Post aborted.");
+                    window.location.href = "/complaints"
+                }
+                else alert(text);
+            })
+            .catch((error) => alert("Something didn't go right."))
+    }
 
     return (
         <div id="post-container">
@@ -49,19 +90,19 @@ const Post = (props) => {
                     </div>
 
                 )}
-                <div className= "right-bottom-div">
-
-                </div>
                 {userId === '' ? (
-                    <>
-                        <Link to="/select-account" id="report-link" onClick={() => alert("You need to login to report.")}>Is there a problem? Report the project</Link>
-                    </>
+                    <Link to="/select-account" id="report-link" onClick={() => alert("You need to login to report.")}>Is there a problem? Report the project</Link>
                 ) : (
-                    <>
+                    userRole !== "administrator" ? (
                         <Link to={"/report-project/" + post.postId} id="report-link">Is there a problem? Report the project</Link>
-                    </>
-                )}
+                    ) : (
+                        <>
+                            <button onClick={() => handleAbort(post.postId)} id="abort-button">Abort</button>
+                            <button onClick={() => handleDelete(post.postId)} id="delete-button">Delete</button>
+                        </>
 
+                    )
+                )}
             </div>
             <div id="payDiv">
                 <h1 className="title-font">{post.title}</h1>

@@ -6,7 +6,6 @@ import './DisplayPosts.css'
 function DisplayPosts() {
     const [originalPosts, setOriginalPosts] = useState([]);
     const [blogPosts, setBlogPosts] = useState([]);
-    const {userId} = useContext(ContextProvider);
 
     useEffect(() => {
         fetch("/fetchAllPosts", {
@@ -33,39 +32,10 @@ function DisplayPosts() {
             .catch((error) => {});
     }, []);
 
-    function handleDelete(postId){
-        const data = {
-            postId: postId,
-            userId: userId
-        };
-        fetch("/deleteBlogPost", {
-            method: "DELETE",
-            headers: {
-                "Content-Type" : "application/json"
-            },
-            body: JSON.stringify(data)
-        })
-            .then((response) => response.text())
-            .then((text) => {
-                if (text === "OK"){
-                    alert("Post deleted.");
-                    setBlogPosts((prevPosts) => prevPosts.filter((post) => post.postId !== postId));
-                }
-                else alert(text);
-            })
-            .catch((error) => alert("Something didn't go right."))
-    }
-
     function handleChange(){
         const searchTextArea = document.getElementById("searchTextArea");
         setBlogPosts(originalPosts);
         setBlogPosts((prevPosts) => prevPosts.filter((post) => post.title.includes(searchTextArea.value)))
-    }
-
-    function copyContent(){
-        let button = document.getElementById("emailButton");
-        navigator.clipboard.writeText(button.innerText);
-        alert("Copied!");
     }
 
     return(
@@ -80,7 +50,7 @@ function DisplayPosts() {
                 {blogPosts && blogPosts.reverse().filter((post) => post.status === 1).map((post) => (
                     <div className="postDiv" key={post.id}>
                         <img src={`data:image/jpeg;base64,${post.titleImg}`} alt="titleImg" className="titleImg"/>
-                        <Link className="postLink" to={post.title + "/" + post.postId} onClick={scrollToTop}><h2 className="postTitle">{post.title}</h2></Link>
+                        <Link className="postLink" to={post.title + "/" + post.postId}><h2 className="postTitle">{post.title}</h2></Link>
                         <p className="postContent">{post.content}</p>
                         <input type="range" min="0" max={post.goalMoney} value={post.currentMoney} className="moneyBar" />
                         <p className="moneyP">{post.currentMoney/post.goalMoney*100}%</p>

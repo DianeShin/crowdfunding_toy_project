@@ -1,4 +1,4 @@
-#outerPageDiv{
+#outer-page-div{
     overflow-y: auto;
     height: 1vh;
 }
@@ -67,6 +67,7 @@
     margin: 50px 10px 50px;
     flex: 0 0 auto;
     border-radius: 20px;
+    transition : width 0.5s ease, height 0.5s ease, margin 0.5s ease;
 }
 .postDiv:hover {
     width: 400px;
