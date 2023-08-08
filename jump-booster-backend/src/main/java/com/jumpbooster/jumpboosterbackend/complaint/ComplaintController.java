@@ -3,10 +3,7 @@ package com.jumpbooster.jumpboosterbackend.complaint;
 import org.apache.coyote.Response;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -17,9 +14,14 @@ public class ComplaintController {
     @Autowired
     public ComplaintController(ComplaintService service){ this.service = service; }
 
-    @GetMapping("/get-all-complaints")
+    @GetMapping("/complaint/fetch-all-complaints")
     public ResponseEntity<List<Complaint>> getAllComplaints(){
         return ResponseEntity.ok(service.getAllComplaints());
+    }
+
+    @PostMapping("/complaint/get-complaint-by-post-id")
+    public ResponseEntity<List<Complaint>> getComplaintsByPostId(@RequestParam Long postId){
+        return ResponseEntity.ok(service.getComplaintsByPostId(postId));
     }
 
     @PostMapping("/add-complaint")

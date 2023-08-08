@@ -51,6 +51,8 @@ public class Complaint {
         this.userId = userId;
         this.complaintType = complaintType;
         this.content = content;
+        this.status = 0;
+        this.reply = "";
     }
 
     public Long getComplaintId() {

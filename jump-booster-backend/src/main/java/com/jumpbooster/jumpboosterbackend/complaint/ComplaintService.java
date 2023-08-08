@@ -30,4 +30,8 @@ public class ComplaintService {
             return "Request filed successfully!";
         }
     }
+
+    public List<Complaint> getComplaintsByPostId(Long postId) {
+        return repository.getComplaintsByPostId(postId);
+    }
 }
