@@ -1,5 +1,5 @@
 import React, {useContext, useEffect, useState} from 'react';
-import {Routes, Route, BrowserRouter, Link, useLocation} from 'react-router-dom';
+import {Routes, Route, Link} from 'react-router-dom';
 import {ContextProvider} from "./ContextElem";
 import {getAccountById} from "../Helper/accountHelper";
 
@@ -18,6 +18,7 @@ import SignOut from "../Auth/SignOut";
 import CreateIndividualAccount from "../Auth/CreateIndividualAccount";
 import MyProjects from "../ProjectOwner/MyProjects";
 import CreatePost from "../ProjectOwner/CreatePost";
+import DisplayComplaints from "../Administrator/DisplayComplaints";
 
 function App() {
     const [projectPosts, setProjectPosts] = useState([]);
@@ -61,7 +62,7 @@ function App() {
     };
 
     return (
-        <div id="outerPageDiv">
+        <div id="outer-page-div">
             <div id="headerFooter" className="center">
                 <Link to="/"><img src="/image/logo.png" alt="logo" id="logo"/><br/></Link>
                 {userId === '' ? (
@@ -87,6 +88,7 @@ function App() {
                     <Route path="/project-posts" element={<DisplayPosts />}/>
                     <Route path="/my-projects" element={<MyProjects/>}/>
                     <Route path="/create-project" element={<CreatePost/>}/>
+                    <Route path="/complaints" element={<DisplayComplaints/>}/>
                     {projectPosts && projectPosts.map((post) => (
                         <>
                             <Route path={"/project-posts/" + post.title + "/" + post.postId} element={<Post id={post.postId} />}/>
@@ -99,6 +101,7 @@ function App() {
                     ) : (
                         <Route path="/sign-out" element={<SignOut handleSignOut={handleSignOut} />} />
                     )}
+                    <Route path="/administrator-login" element={<AccountLogin role="administrator"/>}/>
                 </Route>
             </Routes>
             <div id="footer">

@@ -1,11 +1,8 @@
-#outerPageDiv{
-    display: flex;
-    flex-direction: column;
+#outer-page-div{
     overflow-x: hidden;
-    overflow-y: auto;
+    overflow-y: scroll;
     min-height: 100vh;
 }
-
 
 .title-font{
     font-family: 'Battambang', cursive;
