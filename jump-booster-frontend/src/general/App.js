@@ -1,5 +1,5 @@
 import React, {useContext, useEffect, useState} from 'react';
-import {Routes, Route, Link} from 'react-router-dom';
+import {Routes, Route, Link, BrowserRouter} from 'react-router-dom';
 import {ContextProvider} from "./ContextElem";
 import {getAccountById} from "../Helper/accountHelper";
 
@@ -62,20 +62,25 @@ function App() {
     };
 
     return (
-        <div id="outer-page-div">
-            <div id="headerFooter" className="center">
-                <Link to="/"><img src="/image/logo.png" alt="logo" id="logo"/><br/></Link>
+        <div id="app-container">
+        <BrowserRouter>
+            <div id="header" className="center">
+                <Link to="/"><img src="/image/logo.png" alt="logo" id="logo" /><br/></Link>
                 {userId === '' ? (
                     <>
-                        <h3 id="login-info-text" className="right content-font">Please log-in!</h3>
+                        <div id ="user-info-div">
+                            <h3 id="user-info-text" className="right content-font">Please log-in!</h3>
+                        </div>
                     </>
                 ) : (
-                    <div className="right">
+                    <div id ="user-info-div">
                         <img src={`data:image/jpeg;base64,${profileImg}`} alt="profileImg" id="profileImg"/>
-                        <h3 id="login-info-text" className="content-font">{"Welcome " + username + " !"}</h3>
+                        <h3 id="user-info-text" className="content-font">{"Welcome " + username + " !"}</h3>
                     </div>
                 )}
+            </div>
 
+            <div id="navigation-bar" className="center">
                 <NavBar/>
             </div>
             <Routes>
@@ -109,6 +114,7 @@ function App() {
                 <p>Email : <button id="emailButton" className="footer-button" onClick={copyContent}>jadore845@snu.ac.kr</button></p>
                 <p>Github : <button id="emailButton" className="footer-button" onClick={() => window.location.href = "https://github.com/DianeShin"}>Here</button></p>
             </div>
+        </BrowserRouter>
         </div>
   );
 }

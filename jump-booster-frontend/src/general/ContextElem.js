@@ -15,12 +15,12 @@ export default ({children}) => {
         if (userId){
             getAccountById(userId)
                 .then((userObj) => {
-                    document.getElementById('login-info-text').value = userObj.username;
+                    document.getElementById('user-info-text').value = userObj.username;
                     setUserId(userId);
                 })
         }
         else{
-            document.getElementById('login-info-text').value = "Please log-in!";
+            document.getElementById('user-info-text').value = "Please log-in!";
         }
 
 
@@ -28,12 +28,14 @@ export default ({children}) => {
 
     useEffect(() => {
         if (headerFooter){
-            document.getElementById('headerFooter').style.display = 'block';
+            document.getElementById('header').style.display = 'flex';
+            document.getElementById('navigation-bar').style.display = 'block';
             document.getElementById('footer').style.display = 'block';
 
         }
         else{
-            document.getElementById('headerFooter').style.display = 'none';
+            document.getElementById('header').style.display = 'none';
+            document.getElementById('navigation-bar').style.display = 'none';
             document.getElementById('footer').style.display = 'none';
         }
     }, [headerFooter])

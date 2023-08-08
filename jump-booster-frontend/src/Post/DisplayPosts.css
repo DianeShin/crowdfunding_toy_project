@@ -1,7 +1,3 @@
-#outer-page-div{
-    overflow-y: auto;
-    height: 1vh;
-}
 
 #pageDiv{
     display: flex;
