@@ -60,7 +60,6 @@ export function AccountLogin(props) {
                 <div className="center-wrapper">
                     <div id="login-div">
                         <div className="loginSection" id="login-decoration-div">
-
                             {props.role === "individual" && (
                                 <>
                                     <h3>Invest,</h3><br/><br/>
@@ -75,17 +74,46 @@ export function AccountLogin(props) {
                                     <h3>Change the world.</h3>
                                 </>
                             )}
+                            {props.role === "administrator" && (
+                                <>
+                                    <h3>Check the projects,</h3><br/><br/>
+                                    <h3>Put them in real life,</h3><br/><br/>
+                                    <h3>Change the world.</h3>
+                                </>
+                            )}
                         </div>
                         <div className="loginSection" id="login-info-div">
                             <h2 id="login-text">Login</h2>
                             <form onSubmit={handleSubmit}>
-                                <input className="loginInput" type="text" name="user" placeholder="Username or email" value={loginInfo.user} onChange={handleChange}/><br/>
+                                {props.role === "individual" && (
+                                    <>
+                                        <input className="loginInput" type="text" name="user" placeholder="Username or email" value={loginInfo.user} onChange={handleChange}/><br/>
+                                    </>
+                                )}
+                                {props.role === "business" && (
+                                    <>
+                                        <input className="loginInput" type="text" name="user" placeholder="Username or email" value={loginInfo.user} onChange={handleChange}/><br/>
+                                    </>
+                                )}
+                                {props.role === "administrator" && (
+                                    <>
+                                        <input className="loginInput" type="text" name="user" placeholder="Username" value={loginInfo.user} onChange={handleChange}/><br/>
+                                    </>
+                                )}
+
                                 <input className="loginInput" type="password" name="password" placeholder="Password" value={loginInfo.password} onChange={handleChange}/><br/>
-                                <Link to={"/find-password"}>Forgot password?</Link><br/>
+                                {props.role !== "administrator" && (
+                                    <>
+                                    <Link to={"/find-password"}>Forgot password?</Link><br/>
+                                    </>
+                                )}
                                 <input type="submit" value="Sign in" id="sign-in-button"/>
                             </form>
-
-                            <Link to={"/create-individual-account"}>New here? Create an account!</Link>
+                            {props.role !== "administrator" && (
+                                <>
+                                    <Link to={"/create-individual-account"}>New here? Create an account!</Link>
+                                </>
+                            )}
                         </div>
                     </div>
                 </div>
