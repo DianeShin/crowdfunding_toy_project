@@ -28,11 +28,18 @@ public class AccountConfig {
             Account DianeBuss = new Account(
                     "Diane",
                     "jadore845@gmail.com",
-                    "b",
+                    "a",
                     fileContent,
                     "business"
             );
-            repository.saveAll(List.of(Diane,DianeBuss));
+            Account DianeAdmin = new Account(
+                    "Diane",
+                    "a@b",
+                    "a",
+                    fileContent,
+                    "administrator"
+            );
+            repository.saveAll(List.of(Diane,DianeBuss, DianeAdmin));
         };
     }
 }
