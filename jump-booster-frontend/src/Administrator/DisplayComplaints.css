@@ -1,0 +1,38 @@
+#complaint-page-div{
+    margin: 20px;
+    height: 90%;
+    background-color: rgb(208, 208, 208);
+    border-radius: 20px;
+}
+
+.complaintPostDiv{
+    margin: 15px;
+    padding: 15px;
+    background-color: white;
+    border-radius: 10px;
+    height: 100px;
+    display: flex;
+    position: relative;
+}
+
+.complaintPostLink{
+    text-decoration: none;
+    background-color: rgb(105, 138, 255);
+    border-radius: 15px;
+    padding: 0 10px;
+    height: 30px;
+}
+
+.complaintsDiv{
+    display: flex;
+}
+
+.postLink:hover{
+    background-color: rgba(154, 176, 255);
+    transition: background-color 0.5s ease;
+}
+
+.complaintDiv{
+    background-color: rgba(208, 208, 208, 0.5);
+    border-radius: 20px;
+}
