@@ -75,4 +75,17 @@ public class PostController {
         postService.abortPost(postId);
         return ResponseEntity.ok("OK");
     }
+
+    @PostMapping("/post/activate")
+    public ResponseEntity<String> activatePost(@RequestParam("postId") Long postId,
+                                            @RequestParam("userId") Long userId){
+        Optional<Post> post = postService.getPostById(postId);
+        if (post.isEmpty()) return ResponseEntity.ok("There is no post.");
+        Optional<Account> account = accountService.getAccountById(userId);
+        if (account.isEmpty()) return ResponseEntity.ok("Non-existent account.");
+        if (!account.get().getRole().equals("administrator")) return ResponseEntity.ok("You have no right for activation.");
+        postService.activatePost(postId);
+        return ResponseEntity.ok("OK");
+    }
+
 }

@@ -19,4 +19,8 @@ public interface PostRepository extends JpaRepository<Post, Long> {
     @Transactional
     @Query("UPDATE Post p SET p.status = -1 WHERE p.postId = ?1")
     void abortPostByPostId(Long postId);
+    @Modifying
+    @Transactional
+    @Query("UPDATE Post p SET p.status = 0 WHERE p.postId = ?1")
+    void activatePostByPostId(Long postId);
 }

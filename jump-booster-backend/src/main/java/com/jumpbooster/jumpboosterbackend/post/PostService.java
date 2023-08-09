@@ -45,4 +45,8 @@ public class PostService {
     public void abortPost(Long postId) {
         repository.abortPostByPostId(postId);
     }
+
+    public void activatePost(Long postId) {
+        repository.activatePostByPostId(postId);
+    }
 }
