@@ -12,7 +12,7 @@ const Post = (props) => {
     const [userRole, setUserRole] = useState('');
 
     useEffect(() => {
-        getAccountById(userId).then((userObj) => setUserRole(userObj.role));
+        if (userId !== '') getAccountById(userId).then((userObj) => setUserRole(userObj.role));
         fetch("/fetchBlogPostById", {
             method: "POST",
             headers: {
