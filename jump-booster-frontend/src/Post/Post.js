@@ -48,6 +48,26 @@ const Post = (props) => {
             .catch((error) => alert("Something didn't go right."))
     }
 
+    function handleActive(postId){
+        const formData = new FormData();
+        formData.append("postId", postId);
+        formData.append("userId", userId);
+
+        fetch("/post/activate", {
+            method: "POST",
+            body: formData
+        })
+            .then((response) => response.text())
+            .then((text) => {
+                if (text === "OK"){
+                    alert("Post activated.");
+                    window.location.href = "/complaints"
+                }
+                else alert(text);
+            })
+            .catch((error) => alert("Something didn't go right."))
+    }
+
     function handleAbort(postId){
         const formData = new FormData();
         formData.append("postId", postId);
@@ -97,10 +117,18 @@ const Post = (props) => {
                         <Link to={"/report-project/" + post.postId} id="report-link">Is there a problem? Report the project</Link>
                     ) : (
                         <>
-                            <button onClick={() => handleAbort(post.postId)} id="abort-button">Abort</button>
-                            <button onClick={() => handleDelete(post.postId)} id="delete-button">Delete</button>
+                            {post.status === -1 ? (
+                                <>
+                                    <button onClick={() => handleActive(post.postId)} id="activate-button">Activate</button>
+                                    <button onClick={() => handleDelete(post.postId)} id="delete-button">Delete</button>
+                                </>
+                            ) : (
+                                <>
+                                    <button onClick={() => handleAbort(post.postId)} id="abort-button">Abort</button>
+                                    <button onClick={() => handleDelete(post.postId)} id="delete-button">Delete</button>
+                                </>
+                            )}
                         </>
-
                     )
                 )}
             </div>

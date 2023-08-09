@@ -21,6 +21,7 @@
     border-right: grey 2px solid;
     overflow-y : auto;
     flex-wrap: nowrap;
+    padding: 20px;
 }
 
 #payDiv{
@@ -33,6 +34,19 @@ button{
     text-decoration: none;
     margin: 0 10px;
     border: none;
+}
+
+#activate-button {
+    margin-top : 50px;
+    background-color: rgb(18, 255, 42);
+    color: black;
+    border-radius: 15px;
+    width: 100px;
+}
+
+#activate-button:hover {
+    background-color: rgba(18, 255, 42, 0.5);
+    transition: background-color 0.5s ease;
 }
 
 #delete-button {
