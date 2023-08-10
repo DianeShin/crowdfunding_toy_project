@@ -16,7 +16,7 @@
 
 #post-div{
     width: 50%;
-    height: 100vh;
+    height: 70vh;
     text-align: center;
     border-right: grey 2px solid;
     overflow-y : auto;
@@ -88,4 +88,34 @@ button{
     height: 2em;
     border-radius: 1em;
     width: 10em;
+}
+
+#funders-comment-textarea{
+    resize: none;
+    width: 450px;
+    height: 40px;
+    border: 1px grey solid;
+    outline: none;
+    margin: 10px;
+}
+
+.commentDiv{
+    text-align: left;
+    border-bottom: 1px grey solid;
+    margin: 10px;
+    padding: 10px;
+}
+
+#policies-div{
+    margin : 10px;
+}
+
+.commentInfo{
+    display: flex;
+    justify-content: right;
+}
+
+.timestamp{
+    color: grey;
+    margin-left: 5px;
 }
