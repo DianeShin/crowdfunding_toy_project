@@ -67,16 +67,21 @@ This is a full-stack project making a website where you can upload crowdfunding 
 - [X] 08/08/2023 : Make administrators to view complaints
 - [X] 08/08/2023 : Push login info into header properly
 - [X] 08/08/2023 : Modify tab look
-- [ ] Make administrators handle complaints
+- [X] 09/08/2023 : Enhance complaint display look
+- [X] 10/08/2023 : Make administrators reply/abort complaints
+- [X] 10/08/2023 : Make individuals review the complaint replies
+- [X] 10/08/2023 : Implement Comment on backend
+- [X] 10/08/2023 : Make people comment on projects
+- [ ] More sophisticated comment feature
+- [ ] Implement project owner's comment
 - [ ] Think about what info is exclusive in Account
-- [ ] Implement comment function on frontend/backend
 - [ ] Show reason of project abortion 
 - [ ] Make it go to top of window when post clicked
 - [ ] Implement pay logic
 - [ ] Implement password finding(email functionality in general)
 - [ ] Enhance post display
 - [ ] Enhance money bar look
-- [ } Enhance complaint display look
+- [ ] Find a better way to center align complaintPostLink
 - [ ] Improve CreateIndividualAccount UI/UX and namings
 
 ## Design
@@ -93,10 +98,12 @@ npm install --save @fortawesome/react-fontawesome
 ## Troubleshooting
 1. Unable to access lob stream error while implementing login: fixed by adding @Transactional to AccountService.
 2. Locating divs as I wish. I think I need more studying about it.
+3. fetch API timing issues. Made them async, and and if return statement when loading is not complete.
 
 ## Learned
 <ul>
     <li>CSS animations</li>
     <li>Image transaction</li>
     <li>Image upload from React and processing via backend. Fixed by formData on frontend, MultipartFile on backend.</li>
+    <li>Link margin collapse : use display block.</li>
 </ul>
