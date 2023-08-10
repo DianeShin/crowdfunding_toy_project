@@ -1,0 +1,26 @@
+.myComplaintDiv{
+    background-color: rgba(208, 208, 208, 0.5);
+    display: block;
+    text-align: center;
+    border-radius: 20px;
+    padding: 10px;
+    margin: 20px;
+}
+
+.indicator{
+    width: 100px;
+    border-radius: 10px;
+    margin: 10px;
+}
+
+.replied-indicator{
+    background-color: rgb(18, 255, 42);
+}
+
+.pending-indicator{
+    background-color: rgb(255, 249, 99);
+}
+
+.aborted-indicator{
+    background-color: rgb(255, 0, 0);
+}

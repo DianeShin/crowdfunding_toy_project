@@ -2,7 +2,6 @@ import React, {useContext, useEffect, useState} from 'react';
 import {Routes, Route, Link, BrowserRouter} from 'react-router-dom';
 import {ContextProvider} from "./ContextElem";
 import {getAccountById} from "../Helper/accountHelper";
-
 // CSS
 import './App.css'
 
@@ -19,13 +18,23 @@ import CreateIndividualAccount from "../Auth/CreateIndividualAccount";
 import MyProjects from "../ProjectOwner/MyProjects";
 import CreatePost from "../ProjectOwner/CreatePost";
 import DisplayComplaints from "../Administrator/DisplayComplaints";
+import ReplyToComplaint from "../Administrator/ReplyToComplaint";
+import MyPage from "./MyPage";
 
 function App() {
     const [projectPosts, setProjectPosts] = useState([]);
+    const [complaints, setComplaints] = useState([])
     const {userId, setUserId, setHeader} = useContext(ContextProvider);
     const [username, setUsername] = useState('');
     const [profileImg, setProfileImg] = useState('');
 
+    useEffect(() => {
+        fetch("/complaint/fetch-all-complaints", {
+            method: "GET"
+        })
+            .then((response) => response.json())
+            .then((complaints) => setComplaints((complaints)));
+    }, [])
     useEffect(() => {
         setHeader(true);
         if(userId){
@@ -43,10 +52,8 @@ function App() {
         })
             .then((response) => {
                 if (response.status === 200) return response.json();
-                else throw new Error("No posts.")
             })
             .then((posts) => setProjectPosts(posts))
-            .catch((error) => {})
     }, [userId]);
 
     function copyContent(){
@@ -74,8 +81,10 @@ function App() {
                     </>
                 ) : (
                     <div id ="user-info-div">
-                        <img src={`data:image/jpeg;base64,${profileImg}`} alt="profileImg" id="profileImg"/>
-                        <h3 id="user-info-text" className="content-font">{"Welcome " + username + " !"}</h3>
+                        <Link to="/my-page" className="myPageLink">
+                            <img src={`data:image/jpeg;base64,${profileImg}`} alt="profileImg" id="profileImg"/>
+                            <h3 id="user-info-text" className="content-font">{"Welcome " + username + " !"}</h3>
+                        </Link>
                     </div>
                 )}
             </div>
@@ -86,6 +95,7 @@ function App() {
             <Routes>
                 <Route path="/"  >
                     <Route index element={<Home />}/>
+                    <Route path="/my-page" element={<MyPage userId={userId}/>}/>
                     <Route path="/select-account" element={<SelectAccount/>}/>
                     <Route path="/individual-login" element={<AccountLogin role="individual"/>}/>
                     <Route path="/business-login" element={<AccountLogin role="business"/>}/>
@@ -94,6 +104,11 @@ function App() {
                     <Route path="/my-projects" element={<MyProjects/>}/>
                     <Route path="/create-project" element={<CreatePost/>}/>
                     <Route path="/complaints" element={<DisplayComplaints/>}/>
+                    {complaints && complaints.map((complaint) => (
+                        <>
+                            <Route path={"/complaints/" + complaint.complaintId} element={<ReplyToComplaint complaintId={complaint.complaintId} />}/>
+                        </>
+                    ))}
                     {projectPosts && projectPosts.map((post) => (
                         <>
                             <Route path={"/project-posts/" + post.title + "/" + post.postId} element={<Post id={post.postId} />}/>

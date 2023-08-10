@@ -1,0 +1,33 @@
+#my-page-div{
+    display: flex;
+}
+
+#selection-div{
+    box-sizing: border-box;
+    padding-top: 50px;
+    width: 30%;
+    height: 65vh;
+    border-right: 2px grey dotted;
+}
+
+.selectionButton{
+    margin: 0 auto;
+    width: 80%;
+    height: 60px;
+    display: block;
+    border-bottom: 2px grey dotted;
+    background-color: white;
+    font-size: 16px;
+    transition: background-color 0.5s ease, font-size 0.5s ease;
+}
+
+.selectionButton:hover{
+    background-color: rgba(208, 208, 208, 0.5);
+    font-size : 18px;
+    transition: background-color 0.5s ease, font-size 0.5s ease;
+}
+
+#info-div{
+    box-sizing: border-box;
+    width: 70%;
+}
