@@ -34,4 +34,31 @@ public class ComplaintService {
     public List<Complaint> getComplaintsByPostId(Long postId) {
         return repository.getComplaintsByPostId(postId);
     }
+
+    public Complaint getComplaintById(Long complaintId) {
+        return repository.getComplaintById(complaintId);
+    }
+
+    public String updateReply(String reply, Long complaintId) {
+        Optional<Complaint> complaint = repository.findComplaintById(complaintId);
+        if(complaint.isEmpty()) return "There is no complaint.";
+        else{
+            repository.updateReply(complaintId, reply);
+            repository.updateStatus(complaintId, 1);
+            return "OK";
+        }
+    }
+
+    public String abortComplaint(Long complaintId) {
+        Optional<Complaint> complaint = repository.findComplaintById(complaintId);
+        if (complaint.isEmpty()) return "There is no complaint.";
+        else{
+            repository.updateStatus(complaintId, -1);
+            return "OK";
+        }
+    }
+
+    public List<Complaint> getComplaintsByUserId(Long userId) {
+        return repository.getComplaintsByUserId(userId);
+    }
 }

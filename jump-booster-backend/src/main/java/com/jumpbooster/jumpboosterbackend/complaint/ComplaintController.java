@@ -24,8 +24,28 @@ public class ComplaintController {
         return ResponseEntity.ok(service.getComplaintsByPostId(postId));
     }
 
+    @PostMapping("/complaint/get-complaint-by-user-id")
+    public ResponseEntity<List<Complaint>> getComplaintsByUserId(@RequestParam Long userId){
+        return ResponseEntity.ok(service.getComplaintsByUserId(userId));
+    }
+
+    @PostMapping("/complaint/get-complaint-by-complaint-id")
+    public ResponseEntity<Complaint> getComplaintById(@RequestParam Long complaintId){
+        return ResponseEntity.ok(service.getComplaintById(complaintId));
+    }
     @PostMapping("/add-complaint")
     public ResponseEntity<String> addComplaint(@RequestBody AddComplaintDTO data){
         return ResponseEntity.ok(service.addComplaint(data));
+    }
+
+    @PostMapping("/complaint/update-reply")
+    public ResponseEntity<String> updateReply(@RequestParam String reply,
+                                              @RequestParam Long complaintId){
+        return ResponseEntity.ok(service.updateReply(reply, complaintId));
+    }
+
+    @PostMapping("/complaint/abort-complaint")
+    public ResponseEntity<String> abortComplaint(@RequestParam Long complaintId){
+        return ResponseEntity.ok(service.abortComplaint(complaintId));
     }
 }
