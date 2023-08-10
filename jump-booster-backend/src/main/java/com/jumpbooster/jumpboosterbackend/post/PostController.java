@@ -30,8 +30,8 @@ public class PostController {
         return ResponseEntity.ok(postService.getAllActivePosts());
     }
 
-    @PostMapping("/fetchBlogPostById")
-    public ResponseEntity<Post> getPostById(@RequestBody Long postId){
+    @PostMapping("/post/get-post-by-post-id")
+    public ResponseEntity<Post> getPostById(@RequestParam Long postId){
         Optional<Post> result = postService.getPostById(postId);
         return result.map(ResponseEntity::ok).orElseGet(() -> ResponseEntity.notFound().build());
     }
