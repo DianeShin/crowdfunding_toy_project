@@ -13,12 +13,11 @@ const Post = (props) => {
 
     useEffect(() => {
         if (userId !== '') getAccountById(userId).then((userObj) => setUserRole(userObj.role));
-        fetch("/fetchBlogPostById", {
+        const formData = new FormData();
+        formData.append("postId", props.id);
+        fetch("/post/get-post-by-post-id", {
             method: "POST",
-            headers: {
-                "Content-Type" : "application/json"
-            },
-            body: JSON.stringify(props.id)
+            body: formData
         })
             .then((response) => response.json())
             .then((postResponse) => {
