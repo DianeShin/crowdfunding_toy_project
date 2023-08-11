@@ -39,12 +39,14 @@ export const DisplayComplaints = () => {
                         {complaints
                             .filter((complaint) => complaint.postId === post.postId)
                             .map((complaint) => (
-                                <div className="complaintDiv">
-                                    <p key={complaint.complaintId} className="content-font">{complaint.content}</p>
-                                </div>
+
+                                    <div className="complaintDiv">
+                                        <p key={complaint.complaintId} className="title-font">{complaint.complaintType}</p>
+                                        <p key={complaint.complaintId} className="content-font">{complaint.content}</p>
+                                        <Link to={"/complaints/"+complaint.complaintId} className="complaintLink title-font">Reply</Link>
+                                    </div>
                             ))}
                     </div>
-
                 </div>
             ))}
         </div>

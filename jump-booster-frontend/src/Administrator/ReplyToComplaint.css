@@ -1,0 +1,36 @@
+#complaint-reply-page-div{
+    text-align: center;
+    background-color: rgb(208, 208, 208);
+    margin: 20px;
+    border-radius: 30px;
+    padding: 20px;
+    height: 60vh;
+}
+
+#reply-textarea{
+    height: 200px;
+    width: 800px;
+    margin: 10px;
+    border: none;
+    resize: none;
+    font-size: 18px;
+}
+
+#reply-textarea:focus{
+    outline: none;
+}
+
+#submit-button{
+    margin-top : 5px;
+    text-decoration: none;
+    background-color: rgb(105, 138, 255);
+    color: black;
+    border-radius: 15px;
+    height: 30px;
+    width: 150px;
+}
+
+#submit-button:hover{
+    background-color: rgba(154, 176, 255);
+    transition: background-color 0.5s ease;
+}
