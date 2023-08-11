@@ -9,11 +9,10 @@ const Post = (props) => {
     const [post, setPost] = useState('');
     const [tabMode, setTabMode] = useState('Description');
     const [userName, setUserName] = useState('');
-    const [userRole, setUserRole] = useState('');
-
+    const [userRole, setUserRole] = useState('individual');
 
     useEffect(() => {
-        if (userId !== '') getAccountById(userId).then((userObj) => setUserRole(userObj.role));
+        if (userId) getAccountById(userId).then((userObj) => setUserRole(userObj.role));
         const fetchData = async () => {
             const formData = new FormData();
             formData.append("postId", props.id);

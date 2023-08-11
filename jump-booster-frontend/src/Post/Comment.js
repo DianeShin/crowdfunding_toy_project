@@ -11,7 +11,7 @@ export const Comment = (props) => {
     const [commentChange, setCommentChange] = useState(false);
 
     useEffect(() => {
-        getAccountById(userId).then((userObj) => setRole(userObj.role));
+        if(userId) getAccountById(userId).then((userObj) => setRole(userObj.role));
         const fetchData = async () => {
             const formData = new FormData();
             formData.append("postId", props.postId);
