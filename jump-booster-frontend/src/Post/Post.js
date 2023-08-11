@@ -94,13 +94,13 @@ const Post = (props) => {
         <div id="post-container">
             <div id="post-div">
                 <img src={`data:image/jpeg;base64,${post.titleImg}`} alt="titleImg" id="title-img"/>
-                <div>
-                    <button onClick={() => setTabMode('Description')}>Description</button>
-                    <button onClick={() => setTabMode('Project owner\'s comments')}>Project owner's comments</button>
-                    <button onClick={() => setTabMode('Funder\'s comments')}>Funder's comments</button>
-                    <button onClick={() => setTabMode('Policies')}>Policies</button>
+                <div id="post-navbar-div">
+                    <button className="post-nav-button" onClick={() => setTabMode('Description')}>Description</button>
+                    <button className="post-nav-button" onClick={() => setTabMode('Owner\'s comments')}>Owner's comments</button>
+                    <button className="post-nav-button" onClick={() => setTabMode('Funder\'s comments')}>Funder's comments</button>
+                    <button className="post-nav-button" onClick={() => setTabMode('Policies')}>Policies</button>
                 </div>
-                {tabMode === 'Project owner\'s comments' && (
+                {tabMode === 'Owner\'s comments' && (
                     <Comment postId={post.postId} role="business"/>
                 )}
                 {tabMode === 'Funder\'s comments' && (
