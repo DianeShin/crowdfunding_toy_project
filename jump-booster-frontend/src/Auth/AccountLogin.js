@@ -36,7 +36,7 @@ export function AccountLogin(props) {
                 alert("Logged in!");
                 if(props.role === "individual") window.location.href = "/project-posts";
                 else if (props.role === "business") window.location.href = "/my-projects";
-                else if (props.role === "administrator") window.location.href = "/review-projects"
+                else if (props.role === "administrator") window.location.href = "/complaints"
             }
             else if (Number(data) === -3){
                 alert("No account.")
