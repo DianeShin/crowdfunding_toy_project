@@ -7,6 +7,9 @@
     margin: 10px;
 }
 
+#comments-div{
+    min-height : 40vh;
+}
 .commentDiv{
     text-align: left;
     border-bottom: 1px grey solid;

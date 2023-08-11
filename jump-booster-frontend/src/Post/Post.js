@@ -95,50 +95,52 @@ const Post = (props) => {
             <div id="post-div">
                 <img src={`data:image/jpeg;base64,${post.titleImg}`} alt="titleImg" id="title-img"/>
                 <div id="post-navbar-div">
-                    <button className="post-nav-button" onClick={() => setTabMode('Description')}>Description</button>
-                    <button className="post-nav-button" onClick={() => setTabMode('Owner\'s comments')}>Owner's comments</button>
-                    <button className="post-nav-button" onClick={() => setTabMode('Funder\'s comments')}>Funder's comments</button>
-                    <button className="post-nav-button" onClick={() => setTabMode('Policies')}>Policies</button>
+                    <button className="post-nav-button" onClick={() => {setTabMode('Description'); window.scrollTo(0, window.scrollY);}}>Description</button>
+                    <button className="post-nav-button" onClick={() => {setTabMode('Owner\'s comments'); window.scrollTo(0, window.scrollY);}}>Owner's comments</button>
+                    <button className="post-nav-button" onClick={() => {setTabMode('Funder\'s comments'); window.scrollTo(0, window.scrollY);}}>Funder's comments</button>
+                    <button className="post-nav-button" onClick={() => {setTabMode('Policies'); window.scrollTo(0, window.scrollY);}}>Policies</button>
                 </div>
-                {tabMode === 'Owner\'s comments' && (
-                    <Comment postId={post.postId} role="business"/>
-                )}
-                {tabMode === 'Funder\'s comments' && (
-                    <Comment postId={post.postId} role="individual"/>
-                )}
-                {tabMode === 'Description' && (
-                    <div id = "description-div">
-                        <p>{<img src={`data:image/jpeg;base64,${post.contentImg}`} alt="contentImg" id="content-img"/>}</p>
-                    </div>
+                <div id="content-div">
+                    {tabMode === 'Owner\'s comments' && (
+                        <Comment postId={post.postId} role="business"/>
+                    )}
+                    {tabMode === 'Funder\'s comments' && (
+                        <Comment postId={post.postId} role="individual"/>
+                    )}
+                    {tabMode === 'Description' && (
+                        <div id = "description-div">
+                            <p>{<img src={`data:image/jpeg;base64,${post.contentImg}`} alt="contentImg" id="content-img"/>}</p>
+                        </div>
 
-                )}
-                {tabMode === 'Policies' && (
-                    <div id = "policies-div">
-                        <p className="content-font">Funding is investing. Funding doesn't guarantee a reward. However, we will try our best to bring the best result!</p>
-                    </div>
+                    )}
+                    {tabMode === 'Policies' && (
+                        <div id = "policies-div">
+                            <p className="content-font">Funding is investing. Funding doesn't guarantee a reward. However, we will try our best to bring the best result!</p>
+                        </div>
 
-                )}
-                {userId === '' ? (
-                    <Link to="/select-account" id="report-link" onClick={() => alert("You need to login to report.")}>Is there a problem? Report the project</Link>
-                ) : (
-                    userRole !== "administrator" ? (
-                        <Link to={"/report-project/" + post.postId} id="report-link">Is there a problem? Report the project</Link>
+                    )}
+                    {userId === '' ? (
+                        <Link to="/select-account" id="report-link" onClick={() => alert("You need to login to report.")}>Is there a problem? Report the project</Link>
                     ) : (
-                        <>
-                            {post.status === -1 ? (
-                                <>
-                                    <button onClick={() => handleActive} id="activate-button">Activate</button>
-                                    <button onClick={() => handleDelete} id="delete-button">Delete</button>
-                                </>
-                            ) : (
-                                <>
-                                    <button onClick={() => handleAbort} id="abort-button">Abort</button>
-                                    <button onClick={() => handleDelete} id="delete-button">Delete</button>
-                                </>
-                            )}
-                        </>
-                    )
-                )}
+                        userRole !== "administrator" ? (
+                            <Link to={"/report-project/" + post.postId} id="report-link">Is there a problem? Report the project</Link>
+                        ) : (
+                            <>
+                                {post.status === -1 ? (
+                                    <>
+                                        <button onClick={handleActive} id="activate-button">Activate</button>
+                                        <button onClick={handleDelete} id="delete-button">Delete</button>
+                                    </>
+                                ) : (
+                                    <>
+                                        <button onClick={handleAbort} id="abort-button">Abort</button>
+                                        <button onClick={handleDelete} id="delete-button">Delete</button>
+                                    </>
+                                )}
+                            </>
+                        )
+                    )}
+                </div>
             </div>
             <div id="payDiv">
                 <h1 className="title-font">{post.title}</h1>

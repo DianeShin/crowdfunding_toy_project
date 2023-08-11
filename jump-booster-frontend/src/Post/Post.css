@@ -122,3 +122,7 @@ button{
     background: rgb(208, 208, 208);
     border-radius: 10px;
 }
+
+#policies-div{
+    min-height: 40vh;
+}
