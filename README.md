@@ -72,14 +72,15 @@ This is a full-stack project making a website where you can upload crowdfunding 
 - [X] 10/08/2023 : Make individuals review the complaint replies
 - [X] 10/08/2023 : Implement Comment on backend
 - [X] 10/08/2023 : Make people comment on projects
-- [ ] More sophisticated comment feature
-- [ ] Implement project owner's comment
+- [X] 11/08/2023 : Only logged-in users can comment
+- [X] 11/08/2023 : Make project owners comment
+- [X] 11/08/2023 : Only allow each role to comment on their section
+- [X] 11/08/2023 : Improve post-div look/UX
+- [ ] Implement password finding(email functionality in general)
 - [ ] Think about what info is exclusive in Account
 - [ ] Show reason of project abortion 
 - [ ] Make it go to top of window when post clicked
 - [ ] Implement pay logic
-- [ ] Implement password finding(email functionality in general)
-- [ ] Enhance post display
 - [ ] Enhance money bar look
 - [ ] Find a better way to center align complaintPostLink
 - [ ] Improve CreateIndividualAccount UI/UX and namings
