@@ -34,6 +34,7 @@ public class Comment {
     Long commentGroup;
     String title;
     String content;
+    // business, individual
     String role;
 
     String timestamp;

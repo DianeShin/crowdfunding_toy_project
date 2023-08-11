@@ -14,9 +14,10 @@ public class CommentController {
     @Autowired
     public CommentController(CommentService service){this.service = service;}
 
-    @PostMapping("/comment/get-funders-comments-by-post-id")
-    public List<Comment> getFundersCommentsByPostId(Long postId){
-        return service.getFundersCommentsByPostId(postId);
+    @PostMapping("/comment/get-comments-by-post-id-by-role")
+    public List<Comment> getFundersCommentsByPostId(@RequestParam Long postId,
+                                                    @RequestParam String role){
+        return service.getFundersCommentsByPostId(postId, role);
     }
 
     @PostMapping("/comment/upload")

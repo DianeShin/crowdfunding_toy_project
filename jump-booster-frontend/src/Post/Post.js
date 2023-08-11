@@ -3,15 +3,14 @@ import './Post.css'
 import {getAccountById} from "../Helper/accountHelper";
 import {Link} from "react-router-dom";
 import {ContextProvider} from "../general/ContextElem";
-
+import Comment from "./Comment";
 const Post = (props) => {
     const {userId} = useContext(ContextProvider);
     const [post, setPost] = useState('');
-    const [fundersComments, setFundersComments] = useState([]);
     const [tabMode, setTabMode] = useState('Description');
     const [userName, setUserName] = useState('');
     const [userRole, setUserRole] = useState('');
-    const [commentChange, setCommentChange] = useState(false);
+
 
     useEffect(() => {
         if (userId !== '') getAccountById(userId).then((userObj) => setUserRole(userObj.role));
@@ -27,44 +26,9 @@ const Post = (props) => {
             const postData = await postResponse.json();
             setPost(postData);
             if (postData.userId) getAccountById(postData.userId).then((userObj) => setUserName(userObj.username));
-
-            const fundersCommentsResponse = await fetch("/comment/get-funders-comments-by-post-id", {
-                method: "POST",
-                body: formData
-            })
-
-            const fundersCommentsData = await fundersCommentsResponse.json();
-
-            const getCommentsPromises = fundersCommentsData.map((comment) =>
-                getAccountById(comment.userId).then((accountObj) => (comment.username = accountObj.username))
-            );
-
-            Promise.all(getCommentsPromises).then(() => {
-                setFundersComments(fundersCommentsData);
-            });
-
         }
-
         fetchData();
-    }, [commentChange]);
-
-    function handleCommentSubmit(){
-        const formData = new FormData();
-        formData.append("postId", post.postId);
-        formData.append("userId", userId);
-        formData.append("content", document.getElementById('funders-comment-textarea').value);
-        formData.append("role", "funder");
-        fetch("/comment/upload", {
-            method: "POST",
-            body: formData
-        })
-            .then(() => {
-                alert("Comment uploaded!");
-                setCommentChange(!commentChange);
-                document.getElementById('funders-comment-textarea').value = ''
-            })
-            .catch((error) => alert("Something didn't go right."))
-    }
+    }, []);
 
     function handleDelete(postId){
         const formData = new FormData();
@@ -136,22 +100,11 @@ const Post = (props) => {
                     <button onClick={() => setTabMode('Funder\'s comments')}>Funder's comments</button>
                     <button onClick={() => setTabMode('Policies')}>Policies</button>
                 </div>
+                {tabMode === 'Project owner\'s comments' && (
+                    <Comment postId={post.postId} role="business"/>
+                )}
                 {tabMode === 'Funder\'s comments' && (
-                    <div id="funders-comments-div">
-                        <textarea id="funders-comment-textarea" placeholder="Write comment..."></textarea>
-                        <button onClick={handleCommentSubmit}>Submit</button>
-                        {fundersComments && fundersComments.reverse().map(comment => (
-                            <div key={comment.commentId} className="commentDiv">
-                                <div className="commentContent">
-                                    <p>{comment.content}</p>
-                                </div>
-                                <div className="commentInfo right">
-                                    <p>By : {comment.username} </p>
-                                    <p className="timestamp">({comment.timestamp})</p>
-                                </div>
-                            </div>
-                        ))}
-                    </div>
+                    <Comment postId={post.postId} role="individual"/>
                 )}
                 {tabMode === 'Description' && (
                     <div id = "description-div">

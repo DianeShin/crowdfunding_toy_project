@@ -1,0 +1,33 @@
+#comment-textarea{
+    resize: none;
+    width: 450px;
+    height: 40px;
+    border: 1px grey solid;
+    outline: none;
+    margin: 10px;
+}
+
+.commentDiv{
+    text-align: left;
+    border-bottom: 1px grey solid;
+    margin: 10px;
+    padding: 10px;
+}
+
+.commentInfo{
+    display: flex;
+    justify-content: right;
+}
+
+.timestamp{
+    color: grey;
+    margin-left: 5px;
+}
+
+#login-inform-div{
+    padding: 30px;
+}
+
+#login-inform-text{
+    font-size: 20px;
+}

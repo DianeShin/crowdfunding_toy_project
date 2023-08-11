@@ -12,8 +12,8 @@ public class CommentService {
     @Autowired
     public CommentService(CommentRepository repository){this.repository = repository;}
 
-    public List<Comment> getFundersCommentsByPostId(Long postId) {
-        return repository.getFundersCommentsByPostId(postId);
+    public List<Comment> getFundersCommentsByPostId(Long postId, String role) {
+        return repository.getFundersCommentsByPostId(postId, role);
     }
 
     public void uploadComment(Comment newComment) {
