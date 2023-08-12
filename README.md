@@ -96,6 +96,18 @@ npm install --save @fortawesome/free-solid-svg-icons
 npm install --save @fortawesome/react-fontawesome
 ```
 
+## Back-end configuration
+Add application.properties in ```jump-booster-backend/src/main/resources``` with the content below.
+```
+spring.datasource.url=jdbc:postgresql://localhost:5432/jump_booster
+spring.datasource.username={YOUR_USERNAME}
+spring.datasource.password={YOUR_PASSWORD}
+spring.jpa.hibernate.ddl-auto=create-drop
+spring.jpa.show-sql=true
+spring.jpa.properties.hibernate.dialect=org.hibernate.dialect.PostgreSQLDialect
+spring.jpa.properties.hibernate.format_sql=true
+```
+
 ## Troubleshooting
 1. Unable to access lob stream error while implementing login: fixed by adding @Transactional to AccountService.
 2. Locating divs as I wish. I think I need more studying about it.
